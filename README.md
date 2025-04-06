@@ -46,9 +46,6 @@ Typescript のコンパイルと Express の起動をします。
 次のエンドポイントでレスポンスが返ります。
 
 - GET localhost:3000
-- GET localhost:3000/foo
-- GET localhost:3000/foo/hoge
-- POST localhost:3000/foo/hoge
 
 上記以外はステータスコード 404 が返ります。
 
@@ -84,10 +81,6 @@ src
 このテンプレートでは次のサンプルをコピペして組み込みました。
 
 - https://github.com/log4js-node/log4js-example
-
-次のリクエストを投げると errors.log を出力できます。
-
-- GET localhost:3000/errorSample
 
 ### エラー解決
 
