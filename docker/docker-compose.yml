@@ -1,0 +1,26 @@
+# Use root/example as user/password credentials
+version: "3.1"
+services:
+  api:
+    tty: true
+    image: api-server
+    ports:
+      - 3000:3000
+    volumes:
+      - ..:/app
+    depends_on:
+      - db
+    working_dir: /app
+    command: >
+      bash -c "npm install && npm run dev"
+  db:
+    # platform: linux/x86_64 # M1 Macの場合だけ必要。それ以外の環境では削除する
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    restart: always
+    env_file:
+      - mysql.env
+    volumes:
+      - ./mysql:/var/lib/mysql
